@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">EarthQuake</string>
+    <string name="title_activity_main">Map</string>
+
+
+    <string name="earthquake_request_format">geojson</string>
+    <string name="earthquake_request_event_type">earthquake</string>
+</resources>
