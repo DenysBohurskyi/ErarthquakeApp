@@ -1,4 +1,4 @@
-package com.knacky.earthquake.data.entity.dashboard
+package com.knacky.earthquake.data.entity.apiResponce
 
 /**
  * Created by knacky on 27.10.2018.
@@ -6,7 +6,7 @@ package com.knacky.earthquake.data.entity.dashboard
 class Properties(
         val mag: Float,
         val place: String,
-        val time: Double
+        val time: Long
 ) {
     override fun toString(): String {
         return "Properties(mag=$mag, place='$place', time=$time)"

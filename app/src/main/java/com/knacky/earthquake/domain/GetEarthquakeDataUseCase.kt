@@ -1,6 +1,6 @@
 package com.knacky.earthquake.domain
 
-import com.knacky.earthquake.data.entity.dashboard.DataOfEarthquake
+import com.knacky.earthquake.data.entity.apiResponce.DataOfEarthquake
 import com.knacky.earthquake.data.repository.DashboardRepository
 import com.knacky.earthquake.domain.base.UseCaseSingle
 import com.knacky.earthquake.domain.base.schedulers.ObserveOn

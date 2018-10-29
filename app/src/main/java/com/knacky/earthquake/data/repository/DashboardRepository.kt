@@ -1,6 +1,7 @@
 package com.knacky.earthquake.data.repository
 
-import com.knacky.earthquake.data.entity.dashboard.DataOfEarthquake
+import com.knacky.earthquake.data.entity.Earthquake
+import com.knacky.earthquake.data.entity.apiResponce.DataOfEarthquake
 import io.reactivex.Single
 
 /**
@@ -8,4 +9,5 @@ import io.reactivex.Single
  */
 interface DashboardRepository {
     fun getEarthquakeData(): Single<DataOfEarthquake>
+    fun getAllEarthquakes():Single<List<Earthquake>>
 }

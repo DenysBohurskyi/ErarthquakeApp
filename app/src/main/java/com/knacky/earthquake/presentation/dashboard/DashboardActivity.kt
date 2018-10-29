@@ -2,8 +2,10 @@ package com.knacky.earthquake.presentation.dashboard
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import com.knacky.earthquake.EarthQuakeApp
 import com.knacky.earthquake.R
+import com.knacky.earthquake.data.entity.Earthquake
 import com.knacky.earthquake.presentation.dashboard.adapters.DashboardViewPagerAdapter
 import com.knacky.earthquake.presentation.dashboard.di.DashboardModule
 import com.knacky.earthquake.presentation.dashboard.fragments.EarthQuakeListFragment
@@ -23,24 +25,29 @@ class DashboardActivity : AppCompatActivity(), DashboardActivityPresenter.Dashbo
         daggerInit()
 
         requestData()
-        initViewPager()
+//        initViewPager()
     }
 
 
-
-    private fun requestData(){
+    private fun requestData() {
         dashboardActivityPresenter.getEarthquakeData()
     }
 
-    private fun initViewPager() {
+    override fun onEarthDataGot(allEarthquakes: List<Earthquake>) {
+        Log.i("DashboardActivity", "do not worry")
+        initViewPager(allEarthquakes)
+    }
+
+    private fun initViewPager(listOfEarthquakes: List<Earthquake>) {
         dashboardViewPagerAdapter = DashboardViewPagerAdapter(supportFragmentManager)
-        dashboardViewPagerAdapter.addFragment(EarthQuakeListFragment(), "List")
-        dashboardViewPagerAdapter.addFragment(EarthQuakesMapFragment(), "Map")
+//        if (!EarthQuakeListFragment.newInstance(listOfEarthquakes).isAdded)
+            dashboardViewPagerAdapter.addFragment(EarthQuakeListFragment.newInstance(listOfEarthquakes), "List")
+        dashboardViewPagerAdapter.addFragment(EarthQuakesMapFragment.newInstance(listOfEarthquakes), "Map")
         dashboard_pager.adapter = dashboardViewPagerAdapter
         dashboard_tabs.setupWithViewPager(dashboard_pager)
     }
 
-    private fun daggerInit(){
+    private fun daggerInit() {
         dashboardComponent?.inject(this)
         dashboardActivityPresenter.setView(this)
     }

@@ -1,4 +1,4 @@
-package com.knacky.earthquake.data.entity.dashboard
+package com.knacky.earthquake.data.entity.apiResponce
 
 /**
  * Created by knacky on 27.10.2018.

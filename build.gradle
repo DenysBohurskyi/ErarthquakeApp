@@ -21,6 +21,16 @@ allprojects {
         jcenter()
         maven { url "https://jitpack.io" }
         maven {url 'https://maven.google.com/'}
+
+        configurations.all {
+            resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+                def requested = details.requested
+                if (requested.group == 'com.google.android.gms') {
+                    details.useVersion '12.0.1'
+                }
+            }
+        }
+
     }
 }
 

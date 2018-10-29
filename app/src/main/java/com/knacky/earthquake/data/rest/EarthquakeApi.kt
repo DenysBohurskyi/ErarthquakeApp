@@ -1,6 +1,6 @@
 package com.knacky.earthquake.data.rest
 
-import com.knacky.earthquake.data.entity.dashboard.DataOfEarthquake
+import com.knacky.earthquake.data.entity.apiResponce.DataOfEarthquake
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
