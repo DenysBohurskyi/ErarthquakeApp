@@ -53,7 +53,7 @@ class EarthquakeDAO(context: Context) {
     }
 
     protected fun cursorToEarthquake(cursor: Cursor): Earthquake {
-        val earthquake = Earthquake(cursor.getDouble(1),
+        val earthquake = Earthquake(cursor.getString(1),
                 cursor.getString(2),
                 cursor.getString(3),
                 cursor.getString(4),

@@ -33,8 +33,10 @@ class DashboardRepositoryImpl(val context: Context, val earthquakeApi: Earthquak
 
     private fun pushEarthquakeDataToDB(dataOfEarthquake: DataOfEarthquake) {
 //        val earthquakeDAO = EarthquakeDAO(context)
+        Log.i("fillDb", "TIME = ${dataOfEarthquake.features[0].properties.time}, " +
+                "after Utils time: ${Utils.getDateFormatString(dataOfEarthquake.features[0].properties.time, context)}")
         dataOfEarthquake.features.forEach {
-            earthquakeDAO.createEarthquake(it.properties.time.toString(), it.properties.place, it.properties.mag.toString(),
+            earthquakeDAO.createEarthquake(Utils.getDateFormatString(it.properties.time, context), it.properties.place, it.properties.mag.toString(),
                     it.geometry.coordinates[0].toString(), it.geometry.coordinates[1].toString())
         }
 //        earthquakeDAO.close()

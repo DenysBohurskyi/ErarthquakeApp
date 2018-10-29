@@ -28,5 +28,15 @@ class Utils {
                     .format(cToCalendar.time)
             return Pair(timeFrom, timeTo)
         }
+
+        fun getDateFormatString(longTime: Long, context: Context):String{
+            val calendar = Calendar.getInstance()
+            calendar.timeInMillis = longTime
+
+            val time = SimpleDateFormat("HH:mm", context.resources.configuration.locale)
+                    .format(calendar.time)
+
+            return time
+        }
     }
 }

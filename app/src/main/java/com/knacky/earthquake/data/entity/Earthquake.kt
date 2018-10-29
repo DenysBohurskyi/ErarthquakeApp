@@ -6,9 +6,9 @@ import android.os.Parcelable
 /**
  * Created by knacky on 28.10.2018.
  */
-data class Earthquake(val time: Double, val address: String, val magnitude: String, val longitude: String, val latitude: String) : Parcelable {
+data class Earthquake(val time: String, val address: String, val magnitude: String, val longitude: String, val latitude: String) : Parcelable {
     constructor(source: Parcel) : this(
-            source.readDouble(),
+            source.readString(),
             source.readString(),
             source.readString(),
             source.readString(),
@@ -18,7 +18,7 @@ data class Earthquake(val time: Double, val address: String, val magnitude: Stri
     override fun describeContents() = 0
 
     override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
-        writeDouble(time)
+        writeString(time)
         writeString(address)
         writeString(magnitude)
         writeString(longitude)

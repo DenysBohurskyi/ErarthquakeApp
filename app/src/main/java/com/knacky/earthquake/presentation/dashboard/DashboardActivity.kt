@@ -34,7 +34,6 @@ class DashboardActivity : AppCompatActivity(), DashboardActivityPresenter.Dashbo
     }
 
     override fun onEarthDataGot(allEarthquakes: List<Earthquake>) {
-        Log.i("DashboardActivity", "do not worry")
         initViewPager(allEarthquakes)
     }
 
